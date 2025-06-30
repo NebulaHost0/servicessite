@@ -3,6 +3,7 @@
 import { Shield, Cloud, Cog, Users, Phone, Mail, MapPin, ArrowRight, CheckCircle, Server, Globe, UserPlus } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "@/components/layout";
+import ContactForm from "@/components/contact-form";
 
 export default function Home() {
   
@@ -439,41 +440,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="glass-card p-10 rounded-3xl animate-slideInRight">
-          <h3 className="text-3xl font-semibold text-gray-100 mb-8">Send us a message</h3>
-          
-          <form className="space-y-6">
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-3">First Name</label>
-                <input type="text" className="form-input" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-3">Last Name</label>
-                <input type="text" className="form-input" />
-              </div>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-3">Email</label>
-              <input type="email" className="form-input" />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-3">Company</label>
-              <input type="text" className="form-input" />
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-3">Message</label>
-              <textarea rows={4} className="form-input resize-none"></textarea>
-            </div>
-          
-          <button type="submit" className="w-full btn-primary pulse-on-hover">
-            Send Message
-          </button>
-        </form>
-      </div>
+        <ContactForm />
     </div>
   </div>
 </section>
