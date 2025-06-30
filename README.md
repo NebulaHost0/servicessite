@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NebulaHost - IT Services & Consulting Website
 
-## Getting Started
+A modern, responsive website built with Next.js 15 for an IT services and consulting business. This project showcases best practices in web development with a professional design and comprehensive feature set.
 
-First, run the development server:
+## ✨ Features
 
+- **Modern Design**: Clean, professional UI with gradient backgrounds and smooth animations
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Performance Optimized**: Built with Next.js 15 and React 19 for optimal performance
+- **SEO Ready**: Proper meta tags, semantic HTML, and OpenGraph support
+- **Accessibility**: Focus states, proper contrast ratios, and semantic markup
+- **Smooth Scrolling**: Enhanced user experience with smooth navigation
+- **Mobile Navigation**: Collapsible mobile menu with hamburger icon
+- **Professional Sections**:
+  - Hero section with compelling call-to-action
+  - Services showcase with icons and feature lists
+  - About section with statistics and process overview
+  - Contact section with form and contact information
+  - Professional footer with organized links
+
+## 🚀 Technology Stack
+
+- **Framework**: Next.js 15.3.4 (App Router)
+- **React**: 19.0.0
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **Fonts**: Geist Sans & Geist Mono
+- **TypeScript**: Full TypeScript support
+- **ESLint**: Code quality and consistency
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18.0 or later
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd servicessite
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles and custom CSS
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Home page component
+├── components/              # Reusable components (for future expansion)
+└── lib/                     # Utility functions (for future expansion)
+```
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Branding
+- Update the company name "NebulaHost" in `src/app/page.tsx`
+- Modify colors in the Tailwind classes (blue-600, blue-700, etc.)
+- Update the logo and favicon in the `public/` directory
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Content
+- Edit service descriptions in the Services section
+- Update contact information in the Contact section
+- Modify the hero section messaging
+- Customize the About section statistics and process steps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styling
+- Global styles are in `src/app/globals.css`
+- Component-specific styles use Tailwind CSS classes
+- Custom animations and transitions are defined in globals.css
 
-## Deploy on Vercel
+## 🌐 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel (Recommended)
+```bash
+npm run build
+```
+Then deploy to Vercel with automatic optimizations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Other Platforms
+```bash
+npm run build
+npm start
+```
+
+## 📋 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env.local` file for environment-specific variables:
+```env
+# Add your environment variables here
+NEXT_PUBLIC_SITE_URL=https://yoursite.com
+```
+
+### Tailwind Configuration
+The project uses Tailwind CSS 4 with the new CSS-first configuration approach. Custom styles can be added to `globals.css`.
+
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints:
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
+
+## ♿ Accessibility Features
+
+- Semantic HTML structure
+- Proper heading hierarchy
+- Focus states for keyboard navigation
+- Alt text for images
+- Color contrast compliance
+- Screen reader friendly
+
+## 🚀 Performance Features
+
+- Next.js App Router for optimal loading
+- Automatic code splitting
+- Image optimization (when images are added)
+- CSS optimization with Tailwind
+- Tree shaking for minimal bundle size
+
+## 📈 SEO Optimization
+
+- Meta tags for search engines
+- OpenGraph tags for social sharing
+- Semantic HTML structure
+- Fast loading times
+- Mobile-friendly design
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 📞 Support
+
+For support or questions about this website template, please contact the development team.
+
+---
+
+Built with ❤️ using Next.js and modern web technologies.
