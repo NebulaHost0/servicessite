@@ -3,6 +3,7 @@
 import { Users, Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import RocketLogo from "./rocket-logo";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,8 +20,9 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/">
-                  <h1 className="text-2xl font-bold gradient-text cursor-pointer">NebulaHost</h1>
+                <Link href="/" className="flex items-center space-x-3 cursor-pointer">
+                  <RocketLogo size={48} />
+                  <h1 className="text-2xl font-bold gradient-text">NebulaHost</h1>
                 </Link>
               </div>
             </div>
@@ -74,7 +76,10 @@ export default function Layout({ children }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-10">
             <div>
-              <h3 className="text-3xl font-bold gradient-text mb-6">NebulaHost</h3>
+              <div className="flex items-center space-x-3 mb-6">
+                <RocketLogo size={28} />
+                <h3 className="text-3xl font-bold gradient-text">NebulaHost</h3>
+              </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Your trusted partner for IT services and digital transformation.
               </p>

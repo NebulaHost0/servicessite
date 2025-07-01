@@ -2,6 +2,7 @@
 
 import { Shield, Cloud, Cog, Users, Phone, Mail, MapPin, ArrowRight, CheckCircle, Server, Globe, UserPlus } from "lucide-react";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Layout from "@/components/layout";
 import ContactForm from "@/components/contact-form";
 
@@ -99,7 +100,7 @@ export default function Home() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="service-card animate-slideInLeft">
+          <Link href="/services/cloud-solutions" className="service-card animate-slideInLeft hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-blue">
               <Cloud className="h-8 w-8 text-blue-600" />
             </div>
@@ -122,9 +123,9 @@ export default function Home() {
                 24/7 Monitoring & Support
               </li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="service-card animate-fadeInUp">
+          <Link href="/services/cybersecurity" className="service-card animate-fadeInUp hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-green">
               <Shield className="h-8 w-8 text-green-600" />
             </div>
@@ -147,9 +148,9 @@ export default function Home() {
                 Compliance & Regulatory Support
               </li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="service-card animate-slideInRight">
+          <Link href="/services/digital-transformation" className="service-card animate-slideInRight hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-purple">
               <Cog className="h-8 w-8 text-purple-600" />
             </div>
@@ -172,9 +173,9 @@ export default function Home() {
                 Strategic Technology Planning
               </li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="service-card animate-slideInLeft">
+          <Link href="/services/on-premises-solutions" className="service-card animate-slideInLeft hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-orange">
               <Server className="h-8 w-8 text-orange-600" />
             </div>
@@ -197,9 +198,9 @@ export default function Home() {
                 Hardware Maintenance & Support
               </li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="service-card animate-fadeInUp">
+          <Link href="/services/web-hosting" className="service-card animate-fadeInUp hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-teal">
               <Globe className="h-8 w-8 text-teal-600" />
             </div>
@@ -222,9 +223,9 @@ export default function Home() {
                 Website Maintenance & Updates
               </li>
             </ul>
-          </div>
+          </Link>
 
-          <div className="service-card animate-slideInRight">
+          <Link href="/services/office-365-google-workspace" className="service-card animate-slideInRight hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="icon-container-red">
               <UserPlus className="h-8 w-8 text-red-600" />
             </div>
@@ -247,7 +248,7 @@ export default function Home() {
                 User Training & Support
         </li>
             </ul>
-          </div>
+          </Link>
         </div>
 
         {/* Additional Services Banner */}
@@ -414,7 +415,7 @@ export default function Home() {
               </div>
               <div className="ml-6">
                 <h4 className="font-bold text-gray-100 text-lg">Phone</h4>
-                <p className="text-gray-300 text-lg">+1 (555) 123-4567</p>
+                <p className="text-gray-300 text-lg">+1 (818) 564-7021</p>
               </div>
             </div>
             
@@ -424,7 +425,7 @@ export default function Home() {
               </div>
                               <div className="ml-6">
                   <h4 className="font-bold text-gray-100 text-lg">Email</h4>
-                  <p className="text-gray-300 text-lg">contact@nebulahost.com</p>
+                  <p className="text-gray-300 text-lg">info@nebulahost.io</p>
                 </div>
             </div>
             
@@ -434,7 +435,7 @@ export default function Home() {
               </div>
               <div className="ml-6">
                 <h4 className="font-bold text-gray-100 text-lg">Address</h4>
-                <p className="text-gray-300 text-lg">123 Tech Street, Suite 100<br />San Francisco, CA 94105</p>
+                <p className="text-gray-300 text-lg">2520 Venture Oaks Way Suite 120<br />Sacramento, CA 95833</p>
               </div>
             </div>
           </div>

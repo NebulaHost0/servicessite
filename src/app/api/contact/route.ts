@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Send email via Microsoft Graph
-    await graphClient.api('/me/sendMail').post(mailOptions);
+    await graphClient.api(`/users/${process.env.CONTACT_EMAIL}/sendMail`).post(mailOptions);
 
     // Return success response
     return NextResponse.json(
