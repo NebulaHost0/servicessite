@@ -23,6 +23,28 @@ export default function Home() {
     "Enterprise IT Services"
   ];
 
+  // Scroll to services section
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   useEffect(() => {
     const currentPhrase = phrases[currentPhraseIndex];
     const typingSpeed = isDeleting ? 50 : 100;
@@ -81,7 +103,7 @@ export default function Home() {
                 Schedule Free Consultation
                 <ArrowRight className="ml-3 h-6 w-6" />
               </button>
-              <button className="btn-secondary">
+              <button className="btn-secondary" onClick={scrollToServices}>
                 View Our Services
               </button>
             </div>
@@ -258,7 +280,7 @@ export default function Home() {
             We offer custom IT solutions tailored to your specific business needs. 
             Let&apos;s discuss how we can help transform your technology infrastructure.
           </p>
-          <button className="bg-gray-200 text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button className="bg-gray-200 text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-300 transform hover:scale-105 shadow-lg" onClick={scrollToContact}>
             Request Custom Solution
           </button>
         </div>
