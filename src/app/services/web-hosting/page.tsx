@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Globe, CheckCircle, ArrowRight, Zap, Shield, Server, Headphones } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function WebHostingPage() {
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -36,10 +38,10 @@ export default function WebHostingPage() {
               complete website maintenance, we keep your digital assets running smoothly 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Start Hosting Plan
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 View Hosting Plans
               </button>
@@ -123,14 +125,14 @@ export default function WebHostingPage() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Starter Plan */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInLeft">
+            <div className="glass-card p-8 rounded-3xl animate-slideInLeft flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Starter</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">$19<span className="text-lg text-gray-400">/month</span></div>
                 <p className="text-gray-300">Perfect for small websites</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">5GB SSD Storage</span>
@@ -149,11 +151,11 @@ export default function WebHostingPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Choose Plan</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Choose Plan</Link>
             </div>
 
             {/* Professional Plan */}
-            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-blue-500/50 relative">
+            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-blue-500/50 relative flex flex-col">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Most Popular</span>
               </div>
@@ -164,7 +166,7 @@ export default function WebHostingPage() {
                 <p className="text-gray-300">Ideal for growing businesses</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">25GB SSD Storage</span>
@@ -187,18 +189,18 @@ export default function WebHostingPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-primary pulse-on-hover">Choose Plan</button>
+              <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center mt-auto">Choose Plan</Link>
             </div>
 
             {/* Enterprise Plan */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInRight">
+            <div className="glass-card p-8 rounded-3xl animate-slideInRight flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Enterprise</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">$99<span className="text-lg text-gray-400">/month</span></div>
                 <p className="text-gray-300">For high-traffic websites</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">100GB SSD Storage</span>
@@ -221,7 +223,7 @@ export default function WebHostingPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Choose Plan</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Choose Plan</Link>
             </div>
           </div>
         </div>
@@ -236,12 +238,12 @@ export default function WebHostingPage() {
               Get started with professional hosting and let us handle the technical details.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-teal-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-teal-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Start Free Trial
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-teal-800 transition-all duration-300 transform hover:scale-105">
+              </Link>
+              <Link href="/#contact" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-teal-800 transition-all duration-300 transform hover:scale-105 block text-center">
                 Contact Sales Team
-              </button>
+              </Link>
             </div>
           </div>
         </div>

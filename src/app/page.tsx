@@ -71,6 +71,15 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [displayText, currentPhraseIndex, isDeleting, phrases]);
 
+  // Handle navigation to contact section from other pages
+  useEffect(() => {
+    if (window.location.hash === '#contact') {
+      setTimeout(() => {
+        scrollToContact();
+      }, 100);
+    }
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -99,7 +108,7 @@ export default function Home() {
               From cloud migration to cybersecurity, we&apos;ve got you covered.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <button className="btn-primary pulse-on-hover flex items-center justify-center" onClick={scrollToContact}>
                 Schedule Free Consultation
                 <ArrowRight className="ml-3 h-6 w-6" />
               </button>

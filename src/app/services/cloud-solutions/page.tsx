@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Cloud, CheckCircle, ArrowRight, Zap, Shield, BarChart, Globe } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function CloudSolutionsPage() {
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -36,10 +38,10 @@ export default function CloudSolutionsPage() {
               From migration to optimization, we&apos;ll guide you through every step of your cloud journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Get Cloud Assessment
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 View Case Studies
               </button>
@@ -182,9 +184,9 @@ export default function CloudSolutionsPage() {
                 
                 <div className="mt-8">
                   <h4 className="font-bold text-gray-100 mb-4">Ready to Start Your Cloud Journey?</h4>
-                  <button className="w-full btn-primary pulse-on-hover">
+                  <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">
                     Schedule Free Consultation
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -201,9 +203,9 @@ export default function CloudSolutionsPage() {
               Get a free cloud assessment and migration strategy tailored to your business needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Get Free Assessment
-              </button>
+              </Link>
               <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-800 transition-all duration-300 transform hover:scale-105">
                 Download Cloud Guide
               </button>

@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Shield, CheckCircle, ArrowRight, Lock, Eye, FileCheck, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function CybersecurityPage() {
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -36,10 +38,10 @@ export default function CybersecurityPage() {
               From risk assessments to 24/7 monitoring, we&apos;ll safeguard your digital assets.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Get Security Assessment
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 View Security Report
               </button>
@@ -182,9 +184,9 @@ export default function CybersecurityPage() {
                 
                 <div className="mt-8">
                   <h4 className="font-bold text-gray-100 mb-4">Ready to Secure Your Business?</h4>
-                  <button className="w-full btn-primary pulse-on-hover">
+                  <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">
                     Start Security Assessment
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -201,9 +203,9 @@ export default function CybersecurityPage() {
               Get a comprehensive security assessment and strengthen your defenses today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-red-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Get Security Audit
-              </button>
+              </Link>
               <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-800 transition-all duration-300 transform hover:scale-105">
                 Download Security Guide
               </button>

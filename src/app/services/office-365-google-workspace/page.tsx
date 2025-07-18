@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Mail, CheckCircle, ArrowRight, Users, FileText, Video, Calendar } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,10 +37,10 @@ export default function Office365GoogleWorkspacePage() {
               and comprehensive training for Office 365 and Google Workspace environments that boost productivity and collaboration.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Start Your Migration
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 Compare Platform Options
               </button>
@@ -157,7 +158,7 @@ export default function Office365GoogleWorkspacePage() {
               
               <div className="text-center">
                 <p className="text-gray-400 text-sm mb-4">Best for: Windows-centric organizations, enterprise security requirements</p>
-                <button className="w-full btn-primary pulse-on-hover">Choose Office 365</button>
+                <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">Choose Office 365</Link>
               </div>
             </div>
 
@@ -196,7 +197,7 @@ export default function Office365GoogleWorkspacePage() {
               
               <div className="text-center">
                 <p className="text-gray-400 text-sm mb-4">Best for: Startups, remote teams, simplified collaboration</p>
-                <button className="w-full btn-outline">Choose Google Workspace</button>
+                <Link href="/#contact" className="w-full btn-outline block text-center">Choose Google Workspace</Link>
               </div>
             </div>
           </div>
@@ -297,9 +298,9 @@ export default function Office365GoogleWorkspacePage() {
                 
                 <div className="mt-8">
                   <h4 className="font-bold text-gray-100 mb-4">Ready to Get Started?</h4>
-                  <button className="w-full btn-primary pulse-on-hover">
+                  <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">
                     Schedule Migration Assessment
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -328,14 +329,14 @@ export default function Office365GoogleWorkspacePage() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Starter Package */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInLeft">
+            <div className="glass-card p-8 rounded-3xl animate-slideInLeft flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Starter</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">$2,500<span className="text-lg text-gray-400"> one-time</span></div>
                 <p className="text-gray-300">Basic migration and setup</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Up to 25 users</span>
@@ -354,11 +355,11 @@ export default function Office365GoogleWorkspacePage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Get Started</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Get Started</Link>
             </div>
 
             {/* Professional Package */}
-            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-blue-500/50 relative">
+            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-blue-500/50 relative flex flex-col">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Most Popular</span>
               </div>
@@ -369,7 +370,7 @@ export default function Office365GoogleWorkspacePage() {
                 <p className="text-gray-300">Complete migration and management</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Up to 100 users</span>
@@ -392,18 +393,18 @@ export default function Office365GoogleWorkspacePage() {
                 </div>
               </div>
               
-              <button className="w-full btn-primary pulse-on-hover">Get Started</button>
+              <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center mt-auto">Get Started</Link>
             </div>
 
             {/* Enterprise Package */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInRight">
+            <div className="glass-card p-8 rounded-3xl animate-slideInRight flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Enterprise</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">Custom<span className="text-lg text-gray-400"> quote</span></div>
                 <p className="text-gray-300">Full-service enterprise solution</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Unlimited users</span>
@@ -426,7 +427,7 @@ export default function Office365GoogleWorkspacePage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Contact Sales</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Contact Sales</Link>
             </div>
           </div>
         </div>
@@ -441,9 +442,9 @@ export default function Office365GoogleWorkspacePage() {
               Get started with a free consultation and migration assessment for your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-blue-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Schedule Free Consultation
-              </button>
+              </Link>
               <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-800 transition-all duration-300 transform hover:scale-105">
                 Download Migration Guide
               </button>

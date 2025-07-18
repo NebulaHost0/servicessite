@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Server, CheckCircle, ArrowRight, HardDrive, Network, Shield, Settings } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function OnPremisesSolutionsPage() {
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -36,10 +38,10 @@ export default function OnPremisesSolutionsPage() {
               Expert server setup, network management, and ongoing hardware maintenance with maximum control and security.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Plan Your Infrastructure
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 View Infrastructure Options
               </button>
@@ -182,9 +184,9 @@ export default function OnPremisesSolutionsPage() {
                 
                 <div className="mt-8">
                   <h4 className="font-bold text-gray-100 mb-4">Ready to Build Your Infrastructure?</h4>
-                  <button className="w-full btn-primary pulse-on-hover">
+                  <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">
                     Schedule Infrastructure Consultation
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -204,14 +206,14 @@ export default function OnPremisesSolutionsPage() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Essential Tier */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInLeft">
+            <div className="glass-card p-8 rounded-3xl animate-slideInLeft flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Essential</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">Custom<span className="text-lg text-gray-400"> Quote</span></div>
                 <p className="text-gray-300">Basic infrastructure setup</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Hardware Procurement</span>
@@ -230,11 +232,11 @@ export default function OnPremisesSolutionsPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Get Quote</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Get Quote</Link>
             </div>
 
             {/* Professional Tier */}
-            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-orange-500/50 relative">
+            <div className="glass-card p-8 rounded-3xl animate-fadeInUp border-2 border-orange-500/50 relative flex flex-col">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Recommended</span>
               </div>
@@ -245,7 +247,7 @@ export default function OnPremisesSolutionsPage() {
                 <p className="text-gray-300">Complete managed infrastructure</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Everything in Essential</span>
@@ -268,18 +270,18 @@ export default function OnPremisesSolutionsPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-primary pulse-on-hover">Get Quote</button>
+              <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center mt-auto">Get Quote</Link>
             </div>
 
             {/* Enterprise Tier */}
-            <div className="glass-card p-8 rounded-3xl animate-slideInRight">
+            <div className="glass-card p-8 rounded-3xl animate-slideInRight flex flex-col">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-100 mb-2">Enterprise</h3>
                 <div className="text-4xl font-bold gradient-text mb-2">Custom<span className="text-lg text-gray-400"> Quote</span></div>
                 <p className="text-gray-300">Full-service infrastructure management</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 flex-grow">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
                   <span className="text-gray-300">Everything in Professional</span>
@@ -302,7 +304,7 @@ export default function OnPremisesSolutionsPage() {
                 </div>
               </div>
               
-              <button className="w-full btn-outline">Get Quote</button>
+              <Link href="/#contact" className="w-full btn-outline block text-center mt-auto">Get Quote</Link>
             </div>
           </div>
         </div>
@@ -317,9 +319,9 @@ export default function OnPremisesSolutionsPage() {
               Get a custom infrastructure assessment and design proposal tailored to your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-orange-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-orange-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Schedule Infrastructure Assessment
-              </button>
+              </Link>
               <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-orange-800 transition-all duration-300 transform hover:scale-105">
                 Download Infrastructure Guide
               </button>

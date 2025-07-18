@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import { Zap, CheckCircle, ArrowRight, Lightbulb, TrendingUp, Workflow, Brain } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function DigitalTransformationPage() {
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -36,10 +38,10 @@ export default function DigitalTransformationPage() {
               to AI integration, we help organizations thrive in the digital age and stay ahead of the competition.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="/#contact" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Start Transformation Journey
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
+              </Link>
               <button className="btn-secondary">
                 View Digital Roadmap
               </button>
@@ -182,9 +184,9 @@ export default function DigitalTransformationPage() {
                 
                 <div className="mt-8">
                   <h4 className="font-bold text-gray-100 mb-4">Ready to Transform Your Business?</h4>
-                  <button className="w-full btn-primary pulse-on-hover">
+                  <Link href="/#contact" className="w-full btn-primary pulse-on-hover block text-center">
                     Get Digital Assessment
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -245,9 +247,9 @@ export default function DigitalTransformationPage() {
               Begin your digital transformation journey with a comprehensive assessment and strategic roadmap.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-purple-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/#contact" className="bg-white text-purple-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg block text-center">
                 Start Digital Assessment
-              </button>
+              </Link>
               <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-800 transition-all duration-300 transform hover:scale-105">
                 Download Transformation Guide
               </button>
