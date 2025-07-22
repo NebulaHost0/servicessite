@@ -38,7 +38,6 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li className="hover:text-white transition-colors cursor-pointer">Our Team</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Careers</li>
               <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -46,9 +45,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 text-lg">Resources</h4>
             <ul className="space-y-3 text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">Blog</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Case Studies</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Whitepapers</li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link href="/whitepapers" className="hover:text-white transition-colors">Whitepapers</Link></li>
               <li className="hover:text-white transition-colors cursor-pointer">Support</li>
             </ul>
           </div>

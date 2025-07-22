@@ -33,6 +33,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="ml-10 flex items-center space-x-4">
                 <Link href="/#services" className="text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</Link>
                 <Link href="/about" className="text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</Link>
+                <Link href="/blog" className="text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</Link>
                 <Link href="/#contact" className="text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</Link>
                 <button className="btn-primary pulse-on-hover">
                   Get Started
@@ -57,6 +58,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <Link href="/#services" className="block text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium" onClick={() => setMobileMenuOpen(false)}>Services</Link>
                 <Link href="/about" className="block text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium" onClick={() => setMobileMenuOpen(false)}>About</Link>
+                <Link href="/blog" className="block text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
                 <Link href="/#contact" className="block text-gray-100 hover:text-blue-400 px-3 py-2 rounded-md text-base font-medium" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 <button className="w-full text-left btn-primary mt-2">
                   Get Started
