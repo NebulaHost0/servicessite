@@ -318,7 +318,7 @@ export default function WhitepapersPage() {
                   <p className="text-gray-300 leading-relaxed mb-6">{paper.description}</p>
                   
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-100 mb-3">What You'll Learn</h4>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-3">What You&apos;ll Learn</h4>
                     <div className="space-y-2">
                       {paper.highlights.map((highlight, highlightIndex) => (
                         <div key={highlightIndex} className="flex items-start">

@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import { Mail, CheckCircle, ArrowRight, Users, FileText, Video, Calendar } from "lucide-react";
+import { Mail, CheckCircle, ArrowRight, Users, Video, Calendar } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { Shield, Cloud, Cog, Users, Phone, Mail, MapPin, ArrowRight, CheckCircle, Server, Globe, UserPlus } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Shield, Cloud, Cog, Phone, Mail, MapPin, ArrowRight, CheckCircle, Server, Globe, UserPlus } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Layout from "@/components/layout";
 import ContactForm from "@/components/contact-form";
@@ -13,7 +13,7 @@ export default function Home() {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const phrases = [
+  const phrases = useMemo(() => [
     "Expert IT Solutions",
     "Cloud Infrastructure",
     "Cybersecurity Excellence", 
@@ -21,7 +21,7 @@ export default function Home() {
     "24/7 Tech Support",
     "Modern Web Solutions",
     "Enterprise IT Services"
-  ];
+  ], []);
 
   // Scroll to services section
   const scrollToServices = () => {

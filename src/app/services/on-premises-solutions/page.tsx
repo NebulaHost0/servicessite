@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import { Server, CheckCircle, ArrowRight, HardDrive, Network, Shield, Settings } from "lucide-react";
+import { Server, CheckCircle, ArrowRight, HardDrive, Network, Settings } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
 

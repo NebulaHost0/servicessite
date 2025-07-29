@@ -3,7 +3,7 @@ import { BookOpen, Calendar, User, ArrowRight, Search, Tag } from "lucide-react"
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { client, queries, urlFor } from "@/lib/sanity";
+import { client, queries } from "@/lib/sanity";
 
 export const metadata: Metadata = {
   title: "Blog - NebulaHost",
@@ -38,8 +38,8 @@ async function getBlogData() {
 export default async function BlogPage() {
   const { blogPosts, featuredPost, categories } = await getBlogData();
 
-  // Prepare categories for display
-  const allCategories = ["All Posts", ...categories.map((cat: any) => cat.title)];
+  // Prepare categories for display  
+  const allCategories = ["All Posts", ...categories.map((cat: { title: string }) => cat.title)];
 
   return (
     <Layout>
@@ -181,7 +181,7 @@ export default async function BlogPage() {
           
           {/* Blog Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post: any, index: number) => (
+            {blogPosts.map((post: { _id: string; title: string; slug: { current: string }; excerpt: string; author?: { name: string; role: string }; category?: { title: string }; publishedAt: string; readTime: string; image?: string }, index: number) => (
               <Link 
                 key={post._id || post.slug?.current} 
                 href={`/blog/${post.slug.current}`}

@@ -33,8 +33,9 @@ async function getRelatedPosts(categoryTitle: string, currentPostId: string) {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
   
   if (!post) {
     return {
@@ -65,8 +66,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getBlogPost(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
     return (
@@ -80,7 +82,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
               Post Not Found
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              The blog post you're looking for doesn't exist or has been moved.
+              The blog post you&apos;re looking for doesn&apos;t exist or has been moved.
             </p>
             <Link href="/blog" className="btn-primary pulse-on-hover flex items-center justify-center mx-auto max-w-xs">
               <ArrowLeft className="mr-3 h-5 w-5" />
@@ -265,7 +267,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {relatedPosts.map((relatedPost: any, index: number) => (
+              {relatedPosts.map((relatedPost: { _id: string; title: string; slug: { current: string }; excerpt: string; category?: { title: string }; publishedAt: string; image?: string }) => (
                 <Link 
                   key={relatedPost._id}
                   href={`/blog/${relatedPost.slug.current}`} 

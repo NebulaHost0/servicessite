@@ -85,7 +85,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold text-gray-100 mb-4">Our Values</h3>
               <p className="text-gray-300 leading-relaxed">
                 Excellence in delivery, integrity in relationships, innovation in solutions, 
-                and commitment to our clients' long-term success.
+                and commitment to our clients&apos; long-term success.
               </p>
             </div>
           </div>

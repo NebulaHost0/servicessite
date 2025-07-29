@@ -1,5 +1,6 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -10,7 +11,29 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client)
 
-export const urlFor = (source: any) => builder.image(source)
+export const urlFor = (source: SanityImageSource) => builder.image(source)
+
+// Sanity image type
+export interface SanityImage {
+  asset: {
+    _ref: string
+    _type: 'reference'
+  }
+  _type: 'image'
+}
+
+// Portable Text content type
+export interface PortableTextBlock {
+  _type: string
+  children?: Array<{
+    _type: string
+    text: string
+    marks?: string[]
+  }>
+  style?: string
+  listItem?: string
+  level?: number
+}
 
 // Blog post type
 export interface BlogPost {
@@ -20,12 +43,12 @@ export interface BlogPost {
     current: string
   }
   excerpt: string
-  content: any[]
+  content: PortableTextBlock[]
   author: {
     name: string
     bio?: string
     role?: string
-    image?: any
+    image?: SanityImage
   }
   category: {
     title: string
@@ -34,7 +57,7 @@ export interface BlogPost {
     }
   }
   tags?: string[]
-  image: any
+  image: SanityImage
   featured?: boolean
   publishedAt: string
   readTime: string

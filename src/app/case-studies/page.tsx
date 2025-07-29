@@ -156,7 +156,7 @@ export default function CaseStudiesPage() {
               <span className="gradient-text">Case Studies</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
-              Discover how we've transformed businesses across industries with innovative IT solutions. 
+              Discover how we&apos;ve transformed businesses across industries with innovative IT solutions. 
               Real challenges, practical solutions, measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -241,7 +241,7 @@ export default function CaseStudiesPage() {
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">Success Stories</h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              From startups to enterprise organizations, see how we've delivered transformative results.
+              From startups to enterprise organizations, see how we&apos;ve delivered transformative results.
             </p>
           </div>
           

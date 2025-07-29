@@ -200,7 +200,7 @@ export default function DigitalTransformationPage() {
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">Industry-Specific Solutions</h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Tailored digital transformation strategies for your industry's unique challenges and opportunities.
+              Tailored digital transformation strategies for your industry&apos;s unique challenges and opportunities.
             </p>
           </div>
           
