@@ -30,10 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-blue-700 text-white px-3 py-2 rounded">
+          Skip to content
+        </a>
+        <div id="top" />
+        <main id="main">{children}</main>
       </body>
     </html>
   );

@@ -119,8 +119,22 @@ npm start
 ### Environment Variables
 Create a `.env.local` file for environment-specific variables:
 ```env
-# Add your environment variables here
+# Public site URL
 NEXT_PUBLIC_SITE_URL=https://yoursite.com
+
+# Sanity
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_READ_TOKEN=your_sanity_token_for_preview_optional
+
+# Microsoft Graph / Azure AD
+AZURE_CLIENT_ID=your_application_client_id_here
+AZURE_CLIENT_SECRET=your_client_secret_here
+AZURE_TENANT_ID=your_directory_tenant_id_here
+CONTACT_EMAIL=your-email@yourdomain.com
+
+# Protect Studio in production (set to base64 of username:password)
+STUDIO_BASIC_AUTH=base64_username_colon_password
 ```
 
 ### Tailwind Configuration

@@ -4,13 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { PortableText } from "@portabletext/react";
-import { client, queries, urlFor } from "@/lib/sanity";
+import { client, queries, urlFor, getSanityClient } from "@/lib/sanity";
+import { draftMode } from "next/headers";
 import { portableTextComponents } from "@/components/PortableTextComponents";
+
+// Revalidate each post page every 2 minutes
+export const revalidate = 120;
 
 // Fetch blog post from Sanity
 async function getBlogPost(slug: string) {
   try {
-    const post = await client.fetch(queries.postBySlug, { slug });
+    const { isEnabled: isPreview } = await draftMode()
+    const dataClient = isPreview ? getSanityClient(true) : client
+    const post = await dataClient.fetch(queries.postBySlug, { slug });
     return post;
   } catch (error) {
     console.error('Error fetching blog post:', error);
@@ -21,7 +27,9 @@ async function getBlogPost(slug: string) {
 // Fetch related posts
 async function getRelatedPosts(categoryTitle: string, currentPostId: string) {
   try {
-    const relatedPosts = await client.fetch(queries.relatedPosts, {
+    const { isEnabled: isPreview } = await draftMode()
+    const dataClient = isPreview ? getSanityClient(true) : client
+    const relatedPosts = await dataClient.fetch(queries.relatedPosts, {
       categoryTitle,
       currentPostId
     });
@@ -48,6 +56,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${post.title} - NebulaHost Blog`,
     description: post.excerpt,
     keywords: post.tags?.join(", "),
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || ''}/blog/${post.slug.current}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -157,7 +168,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <Clock className="h-5 w-5 mr-2" />
                 <span>{post.readTime}</span>
               </div>
-              <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300">
+              <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300" aria-label="Share this post">
                 <Share2 className="h-5 w-5 mr-2" />
                 Share
               </button>
@@ -319,3 +330,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     </Layout>
   );
 } 
+
+// Generate static params to pre-render popular posts
+export async function generateStaticParams() {
+  try {
+    const posts = await client.fetch(queries.allPosts)
+    return (posts || []).slice(0, 50).map((p: { slug: { current: string } }) => ({ slug: p.slug.current }))
+  } catch {
+    return []
+  }
+}

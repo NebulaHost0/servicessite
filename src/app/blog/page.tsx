@@ -3,7 +3,11 @@ import { BookOpen, Calendar, User, ArrowRight, Search, Tag } from "lucide-react"
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { client, queries } from "@/lib/sanity";
+import { client, queries, getSanityClient } from "@/lib/sanity";
+import { draftMode } from "next/headers";
+
+// Revalidate the blog list every minute
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Blog - NebulaHost",
@@ -14,10 +18,12 @@ export const metadata: Metadata = {
 // Fetch data from Sanity
 async function getBlogData() {
   try {
+    const { isEnabled: isPreview } = await draftMode()
+    const dataClient = isPreview ? getSanityClient(true) : client
     const [blogPosts, featuredPost, categories] = await Promise.all([
-      client.fetch(queries.allPosts),
-      client.fetch(queries.featuredPost),
-      client.fetch(queries.categories)
+      dataClient.fetch(queries.allPosts),
+      dataClient.fetch(queries.featuredPost),
+      dataClient.fetch(queries.categories)
     ]);
 
     return {
@@ -72,7 +78,7 @@ export default async function BlogPage() {
                 Read Latest Posts
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Link>
-              <button className="btn-secondary flex items-center justify-center">
+              <button className="btn-secondary flex items-center justify-center" aria-disabled>
                 <Search className="mr-3 h-5 w-5" />
                 Search Articles
               </button>
@@ -172,6 +178,7 @@ export default async function BlogPage() {
                     ? "bg-blue-600 text-white shadow-lg"
                     : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white border border-gray-600"
                 }`}
+                aria-pressed={category === 'All Posts'}
               >
                 <Tag className="h-4 w-4 inline mr-2" />
                 {category}

@@ -15,5 +15,6 @@ export const dynamic = 'force-static'
 export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
+  // In production, you may want to restrict access behind basic auth or IP allowlist
   return <NextStudio config={config} />
 }

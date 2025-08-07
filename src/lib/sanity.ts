@@ -1,15 +1,26 @@
-import { createClient } from '@sanity/client'
+import { createClient, type ClientConfig } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
-export const client = createClient({
+const baseConfig: ClientConfig = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  useCdn: false, // Set to true in production for better performance
   apiVersion: '2023-05-03',
-})
+  useCdn: process.env.NODE_ENV === 'production',
+}
 
-const builder = imageUrlBuilder(client)
+/**
+ * Returns a configured Sanity client. When `withToken` is true and a token is
+ * available, the client can read drafts (for preview mode).
+ */
+export function getSanityClient(withToken: boolean = false) {
+  const token = withToken ? process.env.SANITY_READ_TOKEN : undefined
+  return createClient({ ...baseConfig, token })
+}
+
+export const client = getSanityClient(false)
+
+const builder = imageUrlBuilder(getSanityClient(false))
 
 export const urlFor = (source: SanityImageSource) => builder.image(source)
 

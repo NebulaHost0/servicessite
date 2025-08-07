@@ -3,6 +3,7 @@
 import { Shield, Cloud, Cog, Phone, Mail, MapPin, ArrowRight, CheckCircle, Server, Globe, UserPlus } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Layout from "@/components/layout";
 import ContactForm from "@/components/contact-form";
 
@@ -86,10 +87,13 @@ export default function Home() {
       <section className="hero-pattern floating-shapes bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20 py-24 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" 
-            alt="Technology Background"
-            className="w-full h-full object-cover opacity-20"
+            alt="Abstract technology background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-blue-900/40 to-purple-900/60"></div>
         </div>
@@ -300,11 +304,13 @@ export default function Home() {
     <section id="about" className="py-24 bg-gradient-to-br from-gray-800 to-gray-900 floating-shapes relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <img 
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          alt="Modern Office"
-          className="w-full h-full object-cover"
-        />
+         <Image 
+           src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+           alt="Modern office background"
+           fill
+           sizes="100vw"
+           className="object-cover"
+         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/90"></div>
       </div>
       
@@ -398,10 +404,12 @@ export default function Home() {
            <div className="lg:col-span-1 animate-slideInRight">
              <div className="glass-card p-8 rounded-3xl h-full">
                <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
-                 <img 
+                 <Image 
                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                   alt="Professional IT Team"
-                   className="w-full h-full object-cover responsive-image"
+                   alt="Professional IT team"
+                   fill
+                   sizes="(max-width: 1024px) 100vw, 50vw"
+                   className="object-cover responsive-image"
                  />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
@@ -419,10 +427,12 @@ export default function Home() {
     <section id="contact" className="py-24 bg-gray-900 section-pattern relative overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 opacity-40">
-        <img 
+        <Image 
           src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          alt="Modern Tech Office"
-          className="w-full h-full object-cover"
+          alt="Abstract modern office background"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-900/75 to-blue-900/70"></div>
       </div>

@@ -2,6 +2,38 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Client } from '@microsoft/microsoft-graph-client';
 import { ConfidentialClientApplication } from '@azure/msal-node';
 
+// Basic sanitization helpers
+function sanitize(input: string): string {
+  return String(input)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
+// Very simple per-IP rate limiter (replace with a durable store in production)
+const rateLimitWindowMs = 60_000; // 1 minute
+const maxRequestsPerWindow = 5;
+const ipHits = new Map<string, { count: number; windowStart: number }>();
+
+function isRateLimited(ip: string | undefined): boolean {
+  if (!ip) return false;
+  const now = Date.now();
+  const record = ipHits.get(ip);
+  if (!record || now - record.windowStart > rateLimitWindowMs) {
+    ipHits.set(ip, { count: 1, windowStart: now });
+    return false;
+  }
+  record.count += 1;
+  return record.count > maxRequestsPerWindow;
+}
+
 // Azure AD configuration
 const clientConfig = {
   auth: {
@@ -42,9 +74,22 @@ async function getGraphClient() {
 
 export async function POST(request: NextRequest) {
   try {
+    // Note: tighten CORS as needed; keeping origin reading for future use if required
+
+    // Rate limit
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || ''
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+    }
+
     // Parse the request body
     const body = await request.json();
-    const { firstName, lastName, email, company, message } = body;
+    const { firstName, lastName, email, company, message, website } = body;
+
+    // Honeypot field: if filled, silently succeed
+    if (typeof website === 'string' && website.trim().length > 0) {
+      return NextResponse.json({ success: true }, { status: 200 })
+    }
 
     // Validate required fields
     if (!firstName || !lastName || !email || !message) {
@@ -55,8 +100,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!isValidEmail(email)) {
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
@@ -67,7 +111,13 @@ export async function POST(request: NextRequest) {
     const graphClient = await getGraphClient();
 
     // Create email content
-    const emailSubject = `New Contact Form Submission from ${firstName} ${lastName}`;
+    const safeFirst = sanitize(firstName)
+    const safeLast = sanitize(lastName)
+    const safeEmail = sanitize(email)
+    const safeCompany = company ? sanitize(company) : ''
+    const safeMessage = sanitize(message)
+
+    const emailSubject = `New Contact Form Submission from ${safeFirst} ${safeLast}`;
     const emailContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px 10px 0 0;">
@@ -80,21 +130,21 @@ export async function POST(request: NextRequest) {
           <table style="width: 100%; border-collapse: collapse;">
             <tr style="border-bottom: 1px solid #dee2e6;">
               <td style="padding: 12px 0; font-weight: bold; color: #495057; width: 120px;">Name:</td>
-              <td style="padding: 12px 0; color: #6c757d;">${firstName} ${lastName}</td>
+              <td style="padding: 12px 0; color: #6c757d;">${safeFirst} ${safeLast}</td>
             </tr>
             <tr style="border-bottom: 1px solid #dee2e6;">
               <td style="padding: 12px 0; font-weight: bold; color: #495057;">Email:</td>
-              <td style="padding: 12px 0; color: #6c757d;"><a href="mailto:${email}" style="color: #007bff; text-decoration: none;">${email}</a></td>
+              <td style="padding: 12px 0; color: #6c757d;"><a href="mailto:${safeEmail}" style="color: #007bff; text-decoration: none;">${safeEmail}</a></td>
             </tr>
-            ${company ? `
+            ${safeCompany ? `
             <tr style="border-bottom: 1px solid #dee2e6;">
               <td style="padding: 12px 0; font-weight: bold; color: #495057;">Company:</td>
-              <td style="padding: 12px 0; color: #6c757d;">${company}</td>
+              <td style="padding: 12px 0; color: #6c757d;">${safeCompany}</td>
             </tr>
             ` : ''}
             <tr>
               <td style="padding: 12px 0; font-weight: bold; color: #495057; vertical-align: top;">Message:</td>
-              <td style="padding: 12px 0; color: #6c757d; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</td>
+              <td style="padding: 12px 0; color: #6c757d; line-height: 1.6;">${safeMessage.replace(/\n/g, '<br>')}</td>
             </tr>
           </table>
           
@@ -133,8 +183,8 @@ export async function POST(request: NextRequest) {
         replyTo: [
           {
             emailAddress: {
-              address: email,
-              name: `${firstName} ${lastName}`,
+              address: safeEmail,
+              name: `${safeFirst} ${safeLast}`,
             },
           },
         ],
@@ -173,7 +223,7 @@ export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_SITE_URL || '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },

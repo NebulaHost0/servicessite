@@ -1,6 +1,7 @@
 import Layout from "@/components/layout";
 import { Users, Target, Award, Clock, CheckCircle, ArrowRight, Star, TrendingUp, Shield } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Us - NebulaHost",
@@ -33,13 +34,13 @@ export default function AboutPage() {
               innovative IT solutions. Founded on the principles of excellence, innovation, and customer success.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-primary pulse-on-hover flex items-center justify-center">
+              <Link href="#our-story" className="btn-primary pulse-on-hover flex items-center justify-center">
                 Our Story
                 <ArrowRight className="ml-3 h-6 w-6" />
-              </button>
-              <button className="btn-secondary">
+              </Link>
+              <Link href="#team" className="btn-secondary">
                 Meet Our Team
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -93,7 +94,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story & Experience */}
-      <section className="py-24 bg-gradient-to-br from-gray-800 to-gray-900 floating-shapes relative overflow-hidden">
+      <section id="our-story" className="py-24 bg-gradient-to-br from-gray-800 to-gray-900 floating-shapes relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img 
             src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1626&q=80"
@@ -243,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-800 to-gray-900 floating-shapes relative overflow-hidden">
+      <section id="team" className="py-24 bg-gradient-to-br from-gray-800 to-gray-900 floating-shapes relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <img 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"

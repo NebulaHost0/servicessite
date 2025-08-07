@@ -9,6 +9,8 @@ interface FormData {
   email: string;
   company: string;
   message: string;
+  // Honeypot field for bots
+  website: string;
 }
 
 interface FormStatus {
@@ -23,6 +25,7 @@ export default function ContactForm() {
     email: '',
     company: '',
     message: '',
+    website: '',
   });
 
   const [status, setStatus] = useState<FormStatus>({
@@ -99,6 +102,7 @@ export default function ContactForm() {
           email: '',
           company: '',
           message: '',
+          website: '',
         });
       } else {
         setStatus({ 
@@ -179,6 +183,20 @@ export default function ContactForm() {
               required
             />
           </div>
+        </div>
+
+        {/* Honeypot field: visually hidden but accessible to bots */}
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input
+            id="website"
+            name="website"
+            type="text"
+            value={formData.website}
+            onChange={handleInputChange}
+            autoComplete="off"
+            tabIndex={-1}
+          />
         </div>
         
         <div>
